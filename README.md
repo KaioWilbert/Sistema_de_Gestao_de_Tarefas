@@ -1,43 +1,50 @@
-🗂️ Projeto Avaliação - API REST com Sequelize + MySQL
-Este projeto é uma API REST desenvolvida em Node.js com Sequelize, utilizando banco de dados MySQL via XAMPP. O sistema realiza operações CRUD com autenticação via JWT e proteção de senhas com bcrypt.
+🏗️ Sistema de Gerenciamento de Projetos e Tarefas
+Este projeto é uma API RESTful construída com Node.js, Express e Sequelize, conectada ao MySQL via XAMPP. Ela permite a criação, listagem, atualização e exclusão de usuários, projetos e tarefas. Também implementa autenticação com JWT.
 
 ✅ Funcionalidades
-CRUD completo para as entidades (User, Project, Task)
-
-Registro e login de usuários com senha criptografada (bcrypt)
+Cadastro e login de usuários com senha criptografada (bcrypt)
 
 Autenticação com JWT
 
-Banco de dados MySQL rodando via XAMPP
+CRUD de Projetos
 
-Logs armazenados em MongoDB (se aplicável)
+CRUD de Tarefas (relacionadas a projetos e usuários)
 
-⚙️ Requisitos
-Node.js (v16+)
+Relacionamentos entre tabelas
 
-XAMPP com MySQL ativo
+Conexão com MongoDB para logs (se desejar expandir)
 
-npm
+Organização por controladores e modelos
 
-MySQL (localhost)
+🧰 Tecnologias utilizadas
+Node.js
 
-MongoDB (opcional, para logs)
+Express
 
-📦 Instalação
-Clone o repositório
+Sequelize
 
+MySQL (via XAMPP)
+
+JWT
+
+Bcrypt
+
+Dotenv
+
+🚀 Como rodar o projeto localmente
+1. Clone o repositório
 bash
 Copiar
 Editar
 git clone https://github.com/seu-usuario/seu-repo.git
 cd seu-repo
-Instale as dependências
-
+2. Instale as dependências
 bash
 Copiar
 Editar
 npm install
-Configure o .env Crie um arquivo .env na raiz do projeto e adicione:
+3. Configure o arquivo .env
+Crie um arquivo .env na raiz do projeto com o seguinte conteúdo:
 
 env
 Copiar
@@ -47,50 +54,39 @@ DB_USER=root
 DB_PASSWORD=
 DB_NAME=avaliacao
 JWT_SECRET=sua_chave_secreta
-⚠️ Altere JWT_SECRET para algo seguro em produção.
+4. Crie o banco de dados
+Abra o XAMPP, inicie o MySQL, e acesse o phpMyAdmin.
 
-Inicie o XAMPP
+Crie um banco com o nome avaliacao
 
-Abra o painel do XAMPP
+As tabelas serão criadas automaticamente quando a aplicação for executada.
 
-Inicie o Apache e o MySQL
-
-Acesse http://localhost/phpmyadmin e crie o banco com nome avaliacao
-
-Sincronize o banco (opcional)
-
-Se o projeto já estiver com sequelize.sync() habilitado:
-
+5. Inicie a API
 bash
 Copiar
 Editar
 npm run dev
-🚀 Rodando o Projeto
-bash
-Copiar
-Editar
-npm run dev
-ou
-
-bash
-Copiar
-Editar
+# ou
 node index.js
-🧪 Endpoints disponíveis
-POST /register → Cadastro de usuário
+🧪 Dados iniciais (se necessário)
+Você pode popular dados de teste via ferramentas como Insomnia ou Postman, utilizando as rotas:
 
-POST /login → Login do usuário
+POST /auth/register
 
-GET /projects → Lista de projetos (autenticado)
+POST /auth/login
 
-POST /projects → Criação de projeto
+POST /projetos
 
-GET /tasks → Lista de tarefas
+POST /tarefas
 
-POST /tasks → Criação de tarefa
-
-etc.
-
-Use ferramentas como Postman ou Insomnia para testar os endpoints.
-
-
+📁 Estrutura de Pastas
+bash
+Copiar
+Editar
+.
+├── controllers/
+├── models/
+├── routes/
+├── .env
+├── index.js
+├── README.md
